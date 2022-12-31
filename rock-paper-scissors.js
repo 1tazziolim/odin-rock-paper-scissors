@@ -11,6 +11,14 @@ let playerWins = 0;
 let computerWins = 0;
 
 
+//when a button is clicked, playRound is run
+const btns = document.querySelectorAll('.btn');
+btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        playRound();
+    });
+});
+
 function getComputerChoice() {
     //sets computers choice
     let computerChoice = gameOptions[Math.floor(Math.random() * 3)];
@@ -75,10 +83,11 @@ function playRound() {
 
 function playGame() {
     //plays 5 rounds of the game and keeps a score, prints score at the end and resets
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 6; i) {
         console.log(`Round ${i}.`);
         playRound();
     }
     getScore(playerWins, computerWins);
     resetScore(playerWins, computerWins);
 }
+
